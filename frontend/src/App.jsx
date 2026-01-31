@@ -1,11 +1,17 @@
-import React from "react";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Features from "./components/Features";
+import Pricing from "./components/Pricing";
+import Footer from "./components/Footer";
 
-const App = () => {
+export default function App() {
   return (
-    <div>
-      <h1 className="bg-red-500">Welcome to the Gym App</h1>
+    <div className="font-sans">
+      <Navbar />
+      <Hero />
+      <Features />
+      <Pricing />
+      <Footer />
     </div>
   );
-};
-
-export default App;
+}
