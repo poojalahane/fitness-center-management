@@ -1,14 +1,22 @@
-const express = require("express");
+import express from 'express'
+import dotenv from 'dotenv'
+dotenv.config()
+import conncet from './config/db.js'
+import UserRoute from './routes/User.route.js'
 
-const app = express();
-const PORT = 3000;
+conncet()
 
-// basic route
-app.get("/", (req, res) => {
-  res.send("Server is running 🚀");
-});
+const app = express()
+const PORT= process.env.PORT
+app.use(express.json())
 
-// start server
-app.listen(PORT, () => {
-  console.log(`Server started on http://localhost:${PORT}`);
-});
+
+
+app.get('/',(req,res)=>{
+  res.send('<h1>hello world</h1>')
+})
+
+app.use('/api/v1/user',UserRoute)
+app.listen(PORT,()=>{
+  console.log(`your server is running on http://localhost:${PORT}`)
+})
